@@ -36,8 +36,9 @@ Transform {
     }
     geometry Text {
       string [
-        "Hello",
-        "World!"
+        "POV:",
+        "Eres un malo de DBZ llendo a",
+        "reventar la Tierra sin motivo alguno"
       ]
       fontStyle FontStyle {
         justify [
