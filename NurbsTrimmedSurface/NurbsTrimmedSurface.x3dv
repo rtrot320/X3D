@@ -32581,8 +32581,8 @@ StaticGroup {
         DEF ControlPointConnections Shape {
           appearance Appearance {
             lineProperties LineProperties {
-              linetype 3
-              linewidthScaleFactor 2
+              linetype 1
+              linewidthScaleFactor 5
             }
             material UnlitMaterial { }
           }
@@ -32655,9 +32655,9 @@ StaticGroup {
         DEF ControlPoints Shape {
           appearance Appearance {
             pointProperties PointProperties {
-              pointSizeScaleFactor 6
-              pointSizeMinValue 6
-              pointSizeMaxValue 6
+              pointSizeScaleFactor 12
+              pointSizeMinValue 12
+              pointSizeMaxValue 12
             }
             material USE _5
           }
