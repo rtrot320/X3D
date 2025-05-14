@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "http://www.web3d.org/specifications/x3d-4.0.dtd">
+<X3D profile='Interchange' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-4.0.xsd'>
+  <head>
+    <component name='Geometry2D' level='2'/>
+    <component name='Scripting' level='1'/>
+    <meta name='comment' content='Rise and Shine'/>
+    <meta name='created' content='Tue, 05 Aug 2014 20:06:52 GMT'/>
+    <meta name='creator' content='Holger Seelig'/>
+    <meta name='generator' content='Sunrize X3D Editor V1.7.1, https://create3000.github.io/sunrize/'/>
+    <meta name='identifier' content='file:///home/holger/Projekte/Titania/libtitania-x3d/share/titania/tools/library/Grid.x3dv'/>
+    <meta name='modified' content='Sat, 29 Jun 2024 10:50:23 GMT'/>
+  </head>
+  <Scene>
+    <ExternProtoDeclare name='ToolShader' url='"ToolShader.x3d"'/>
+    <ProtoDeclare name='Grid'>
+      <ProtoInterface>
+        <field accessType='inputOutput' type='SFVec3f' name='translation'/>
+        <field accessType='inputOutput' type='SFRotation' name='rotation'/>
+        <field accessType='inputOutput' type='SFVec3f' name='scale' value='1 1 1'/>
+        <field accessType='inputOutput' type='MFInt32' name='dimension' value='10, 10, 10'/>
+        <field accessType='inputOutput' type='MFInt32' name='majorLineEvery' value='5, 5, 5'/>
+        <field accessType='inputOutput' type='MFInt32' name='majorLineOffset' value='0, 0, 0'/>
+        <field accessType='inputOutput' type='SFColor' name='color' value='0.5 0.5 0.5'/>
+        <field accessType='inputOutput' type='SFFloat' name='transparency' value='0.8'/>
+        <field accessType='inputOutput' type='SFColor' name='lineColor' value='0.9647059 0.6980392 0.4196078'/>
+        <field accessType='inputOutput' type='SFFloat' name='lineTransparency' value='0.8'/>
+        <field accessType='inputOutput' type='SFColor' name='majorLineColor' value='0.9647059 0.6980392 0.4196078'/>
+        <field accessType='inputOutput' type='SFFloat' name='majorLineTransparency' value='0.6'/>
+        <field accessType='initializeOnly' type='SFBool' name='solid' value='true'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Transform>
+          <IS>
+            <connect nodeField='rotation' protoField='rotation'/>
+          </IS>
+          <Transform>
+            <IS>
+              <connect nodeField='translation' protoField='translation'/>
+              <connect nodeField='scale' protoField='scale'/>
+            </IS>
+            <Transform DEF='Plane'
+                rotation='-3.09087122910219e-8 0.70710528118436 0.707108281185553 3.14159'
+                scale='10 10 1'>
+              <Shape
+                  castShadow='false'>
+                <Appearance>
+                  <Material DEF='Material2'
+                      diffuseColor='0 0 0'>
+                    <IS>
+                      <connect nodeField='emissiveColor' protoField='color'/>
+                      <connect nodeField='transparency' protoField='transparency'/>
+                    </IS>
+                  </Material>
+                  <ProtoInstance name='ToolShader' DEF='_999' containerField='shaders'/>
+                </Appearance>
+                <Rectangle2D
+                    size='1 1'>
+                  <IS>
+                    <connect nodeField='solid' protoField='solid'/>
+                  </IS>
+                </Rectangle2D>
+              </Shape>
+            </Transform>
+            <Shape DEF='MajorGrid'
+                pointerEvents='false'
+                castShadow='false'>
+              <Appearance>
+                <Material DEF='MajorMaterial'
+                    diffuseColor='0 0 0'>
+                  <IS>
+                    <connect nodeField='emissiveColor' protoField='majorLineColor'/>
+                    <connect nodeField='transparency' protoField='majorLineTransparency'/>
+                  </IS>
+                </Material>
+                <ProtoInstance name='ToolShader' USE='_999' containerField='shaders'/>
+              </Appearance>
+              <IndexedLineSet DEF='MajorGrid_2'>
+                <Coordinate/>
+              </IndexedLineSet>
+            </Shape>
+            <Shape DEF='MinorGrid'
+                pointerEvents='false'
+                castShadow='false'>
+              <Appearance>
+                <Material DEF='MinorMaterial'
+                    diffuseColor='0 0 0'>
+                  <IS>
+                    <connect nodeField='emissiveColor' protoField='lineColor'/>
+                    <connect nodeField='transparency' protoField='lineTransparency'/>
+                  </IS>
+                </Material>
+                <ProtoInstance name='ToolShader' USE='_999' containerField='shaders'/>
+              </Appearance>
+              <IndexedLineSet DEF='MinorGrid_3'>
+                <Coordinate/>
+              </IndexedLineSet>
+            </Shape>
+            <Shape DEF='MajorPoints'
+                pointerEvents='false'
+                castShadow='false'>
+              <Appearance>
+                <PointProperties
+                    pointSizeScaleFactor='6'
+                    pointSizeMinValue='6'
+                    pointSizeMaxValue='6'/>
+                <Material USE='MajorMaterial'/>
+                <ProtoInstance name='ToolShader' USE='_999' containerField='shaders'/>
+              </Appearance>
+              <PointSet DEF='MajorPoints_4'>
+                <Coordinate/>
+              </PointSet>
+            </Shape>
+            <Shape DEF='MinorPoints'
+                pointerEvents='false'
+                castShadow='false'>
+              <Appearance>
+                <PointProperties
+                    pointSizeScaleFactor='4'
+                    pointSizeMinValue='4'
+                    pointSizeMaxValue='4'/>
+                <Material USE='MinorMaterial'/>
+                <ProtoInstance name='ToolShader' USE='_999' containerField='shaders'/>
+              </Appearance>
+              <PointSet DEF='MinorPoints_5'>
+                <Coordinate/>
+              </PointSet>
+            </Shape>
+          </Transform>
+        </Transform>
+        <Script DEF='GridScript'
+            directOutput='true'
+            mustEvaluate='true'>
+          <field accessType='inputOutput' type='MFInt32' name='dimension'/>
+          <field accessType='inputOutput' type='MFInt32' name='majorLineEvery'/>
+          <field accessType='inputOutput' type='MFInt32' name='majorLineOffset'/>
+          <field accessType='initializeOnly' type='SFNode' name='plane'>
+            <Transform USE='Plane'/>
+          </field>
+          <field accessType='initializeOnly' type='SFNode' name='majorGrid'>
+            <IndexedLineSet USE='MajorGrid_2'/>
+          </field>
+          <field accessType='initializeOnly' type='SFNode' name='minorGrid'>
+            <IndexedLineSet USE='MinorGrid_3'/>
+          </field>
+          <field accessType='initializeOnly' type='SFNode' name='majorPoints'>
+            <PointSet USE='MajorPoints_4'/>
+          </field>
+          <field accessType='initializeOnly' type='SFNode' name='minorPoints'>
+            <PointSet USE='MinorPoints_5'/>
+          </field>
+          <IS>
+            <connect nodeField='dimension' protoField='dimension'/>
+            <connect nodeField='majorLineEvery' protoField='majorLineEvery'/>
+            <connect nodeField='majorLineOffset' protoField='majorLineOffset'/>
+          </IS>
+<![CDATA[ecmascript:
+
+function initialize ()
+{
+   eventsProcessed ();
+}
+
+function eventsProcessed ()
+{
+   // Plane
+
+   plane .scale = new SFVec3f (dimension [0], dimension [2], 1);
+
+   // Grid
+
+   generateGrid (true, majorGrid);
+   generateGrid (false, minorGrid);
+
+   // Points
+
+   generatePoints (true,  majorPoints .coord .point);
+   generatePoints (false, minorPoints .coord .point);
+}
+
+function generateGrid (major, grid)
+{
+   var point       = grid .coord .point;
+   var coordIndex  = new MFInt32 ();
+   var scaleX1_2   = dimension [0] / 2;
+   var scaleZ1_2   = dimension [2] / 2;
+   var majorAdd    = major / 4;
+   var p           = 0;
+
+   for (var i = 0, size = dimension [0] + 1; i < size; ++ i)
+   {
+      if (major - isMajorLine (i, 0))
+         continue;
+
+      var x = -scaleX1_2 + i;
+
+      point [p]     = new SFVec3f (x, 0, -scaleZ1_2 - majorAdd);
+      point [p + 1] = new SFVec3f (x, 0,  scaleZ1_2 + majorAdd);
+      coordIndex [coordIndex .length] = p;
+      coordIndex [coordIndex .length] = p + 1;
+      coordIndex [coordIndex .length] = -1;
+
+      p += 2;
+   }
+
+   for (var i = 0, size = dimension [2] + 1; i < size; ++ i)
+   {
+      if (major - isMajorLine (i, 2))
+         continue;
+
+      var z = -scaleZ1_2 + i;
+
+      point [p]     = new SFVec3f (-scaleX1_2 - majorAdd, 0, z);
+      point [p + 1] = new SFVec3f ( scaleX1_2 + majorAdd, 0, z);
+      coordIndex [coordIndex .length] = p;
+      coordIndex [coordIndex .length] = p + 1;
+      coordIndex [coordIndex .length] = -1;
+
+      p += 2;
+   }
+
+   point .length = p;
+
+   grid .set_coordIndex = coordIndex;
+}
+
+function generatePoints (major, point)
+{
+   var scaleY1_2 = -dimension [1] / 2;
+   var p         = 0;
+
+   for (var i = 0, size = dimension [1] + 1; i < size; ++ i)
+   {
+      if (major - isMajorLine (i, 1))
+         continue;
+
+      point [p] = new SFVec3f (0, scaleY1_2 + i, 0);
+      ++ p;
+   }
+
+   point .length = p;
+}
+
+function isMajorLine (i, index)
+{
+   for (var d = index; d < majorLineEvery .length; d += 3)
+   {
+      if (isMajor (i, dimension [index], majorLineEvery [d], majorLineOffset [d]))
+         return true;
+   }
+
+   return false;
+}
+
+function isMajor (i, dimension, majorLineEvery, majorLineOffset)
+{
+   if (majorLineEvery)
+   {
+      var index = Math .floor (i - dimension / 2 - majorLineOffset);
+
+      return !(index % majorLineEvery);
+   }
+
+   return false;
+}
+]]>
+        </Script>
+      </ProtoBody>
+    </ProtoDeclare>
+  </Scene>
+</X3D>
