@@ -29,7 +29,7 @@ EXTERNPROTO Grid [
 
 WorldInfo { }
 
-DEF Gray Background {
+DEF Blue Background {
   skyAngle 1.5708
   skyColor [
     0.1 0.1 0.1,
@@ -52,8 +52,8 @@ Viewpoint {
 StaticGroup {
   children [
     Grid {
-      lineColor 0 0 0
-      majorLineColor 0 0 0
+      lineColor 1 0 0
+      majorLineColor 0 1 0
     }
     DEF SurfaceVisualization Transform {
       translation -2 0 -2
@@ -61,7 +61,7 @@ StaticGroup {
         DEF NurbsTrimmedSurface Shape {
           appearance DEF _1 Appearance {
             material Material {
-              diffuseColor 1 0 0
+              diffuseColor 1 0 1
               specularColor 0.6941176 1 0
               shininess 0.03220936
             }
