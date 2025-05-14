@@ -46,7 +46,7 @@
         <Shape DEF='NurbsTrimmedSurface'>
           <Appearance DEF='_1'>
             <Material
-                diffuseColor='1 0 0'
+                diffuseColor='1 0 1'
                 specularColor='0.6941176 1 0'
                 shininess='0.03220936'/>
           </Appearance>
