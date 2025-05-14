@@ -38,8 +38,8 @@
         centerOfRotation='0 0.75 0'/>
     <StaticGroup>
       <ProtoInstance name='Grid'>
-        <fieldValue name='lineColor' value='0 0 0'/>
-        <fieldValue name='majorLineColor' value='0 0 0'/>
+        <fieldValue name='lineColor' value='1 0 0'/>
+        <fieldValue name='majorLineColor' value='0 1 0'/>
       </ProtoInstance>
       <Transform DEF='SurfaceVisualization'
           translation='-2 0 -2'>
